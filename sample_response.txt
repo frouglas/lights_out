@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<body copyright="All data copyright San Francisco Muni 2017.">
+<predictions agencyTitle="San Francisco Muni" routeTitle="N-Judah" routeTag="N" stopTitle="Carl St &amp; Stanyan St" stopTag="3915">
+  <direction title="Inbound to Caltrain/Ball Park">
+  <prediction epochTime="1510542966982" seconds="1229" minutes="20" isDeparture="false" affectedByLayover="true" dirTag="N____I_F00" vehicle="1501" vehiclesInConsist="2" block="9704" tripTag="7679950" />
+  <prediction epochTime="1510543612807" seconds="1875" minutes="31" isDeparture="false" affectedByLayover="true" dirTag="N____I_F00" vehicle="1449" vehiclesInConsist="2" block="9705" tripTag="7679951" />
+  <prediction epochTime="1510544332807" seconds="2595" minutes="43" isDeparture="false" affectedByLayover="true" dirTag="N____I_F00" vehicle="1500" block="9711" tripTag="7679952" />
+  <prediction epochTime="1510545052807" seconds="3315" minutes="55" isDeparture="false" affectedByLayover="true" dirTag="N____I_F00" vehicle="1535" block="9706" tripTag="7679953" />
+  <prediction epochTime="1510545772807" seconds="4035" minutes="67" isDeparture="false" affectedByLayover="true" dirTag="N____I_F00" vehicle="1539" vehiclesInConsist="2" block="9707" tripTag="7679954" />
+  </direction>
+  <direction title="Inbound to 23rd St + Third St">
+  <prediction epochTime="1510542333295" seconds="595" minutes="9" isDeparture="false" dirTag="N____I_E30" vehicle="1504" vehiclesInConsist="2" block="9703" tripTag="7679949" />
+  <prediction epochTime="1510546268767" seconds="4531" minutes="75" isDeparture="false" affectedByLayover="true" dirTag="N____I_E30" vehicle="1407" vehiclesInConsist="2" block="9709" tripTag="7680015" />
+  </direction>
+<message text="No Elevator at&#10;Civic Center Sta." priority="Normal"/>
+<message text="Howard btwn 3rd &amp; 4th CLOSED thru 11/13. Downtown Muni service may be impacted." priority="Low"/>
+<message text="No Elevator at&#10;Van Ness Station" priority="Normal"/>
+</predictions>
+</body>
+ 

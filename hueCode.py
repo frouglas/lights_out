@@ -21,12 +21,15 @@ allInfo = bridge.get_api()
 
 lights = bridge.get_light_objects('id')
 
-warnOn = {'transitiontime': 1, 'on': True, 'bri': 254, 'hue': 0} 
+warnOn = {'transitiontime': 1, 'on': True, 'bri': 254, 'hue': 0, 'sat': 254} 
 warnOff = {'transitiontime': 1, 'on': False} 
 
 startHue = lights[6].hue
 startBri = lights[6].brightness
-reset = {'transitiontime': 1, 'on': True, 'bri': startBri, 'hue': startHue}
+startSat = lights[6].saturation
+reset = {'transitiontime': 1, 'on': True, 'bri': startBri, 'hue': startHue, 
+         'sat': startSat}
+currState = {}
 
 r = requests.get(url = 
                  "http://webservices.nextbus.com/service/publicXMLFeed?" + 
@@ -49,7 +52,10 @@ while arrivals < trigger:
     else:
         lastPredict = predictions[activePrediction]
     
+    print(predictions[activePrediction])
+    
     if predictions[activePrediction] < 120:
+        print("ALERT")
         for i in range(5):
             bridge.set_light(6,warnOn)
             time.sleep(1)
@@ -58,15 +64,22 @@ while arrivals < trigger:
         activePrediction += 1
         lastPredict = predictions[activePrediction]
         if cycles != 0:
+            print("moving to next train")
             arrivals += 1
+        bridge.set_light(6, reset)
     elif 120 <= predictions[activePrediction] <= 300:
+        print("updating interim estimate")
         time_left = lastPredict - 120
         thisHue = time_left / 180 * 25500
         lights[6].hue = thisHue
-        lights[6].brightness = 255  
+        lights[6].brightness = 255
+        lights[6].saturation = 255
     else:
         lights[6].hue = 25500
+        lights[6].brightness = 255
+        lights[6].saturation = 255
     cycles += 1
     time.sleep(10)
+
 
 bridge.set_light(6,reset)
